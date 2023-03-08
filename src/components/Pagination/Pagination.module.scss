@@ -1,0 +1,123 @@
+@import "../../index.module.scss";
+
+.numbersContainer {
+  display: grid;
+  grid-auto-flow: column;
+  margin: 30px auto 30px;
+  // justify-items: center;
+  justify-content: center;
+
+  max-width: 333px;
+
+  @media (min-width: 1440px) {
+    max-width: 1280px;
+  }
+}
+
+.numbers {
+  display: grid;
+  width: 56px;
+  height: 56px;
+
+  color: $greyText;
+
+  background-color: $whiteText;
+
+  justify-content: center;
+  align-content: center;
+
+  margin-right: 20px;
+
+  border-radius: 5px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: box-shadow, color 0.3s;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    box-shadow: rgb(0 0 0 / 25%) 0 0 10px;
+    color: $blackText;
+  }
+}
+
+.darkMode {
+  background-color: $lightDark;
+  color: $whiteText;
+  color: $greyText;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $whiteText;
+  }
+}
+
+.darkModeNo {
+  font-weight: 800;
+  color: $blackText;
+  cursor: default;
+
+  &:hover {
+    box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+  }
+}
+
+.darkModeYes {
+  font-weight: 800;
+  color: $whiteText;
+  background-color: $lightDark;
+  cursor: default;
+
+  &:hover {
+    color: $whiteText;
+    box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+  }
+}
+
+.darkModeNo2 {
+  background-color: $whiteText;
+
+  transition: color 0.3s;
+
+  &:hover {
+    color: $blackText;
+  }
+}
+
+.pagination {
+  display: none;
+  @media (min-width: 1440px) {
+    display: grid;
+    grid-auto-flow: column;
+  }
+}
+
+.noResult {
+  width: 333px;
+  // margin: 80px auto 0;
+  // padding-top: 30px;
+
+  font-size: 23px;
+  font-weight: 800;
+  color: $blackText;
+
+  @media (min-width: 1440px) {
+    width: 1280px;
+    font-size: 35px;
+  }
+}
+
+.darkModeNoResult {
+  color: $whiteText;
+}
+

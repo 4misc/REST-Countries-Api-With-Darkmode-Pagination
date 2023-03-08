@@ -1,0 +1,24 @@
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.text {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  z-index: 2;
+}

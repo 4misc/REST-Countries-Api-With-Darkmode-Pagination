@@ -1,0 +1,34 @@
+@import "../../index.module.scss";
+
+.countries {
+  display: grid;
+  width: 375px;
+  height: auto;
+  margin: 0 auto;
+  background-color: $whiteBackground;
+
+  @media (min-width: 1440px) {
+    width: 1280px;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 333px;
+  justify-items: center;
+  justify-content: center;
+  gap: 30px;
+  // padding-top: 30px;
+  background-color: $whiteBackground;
+
+  @media (min-width: 1440px) {
+    grid-template-columns: 220px 220px 220px 220px 220px;
+    justify-content: center;
+    gap: 45px;
+    margin: 0 auto;
+  }
+}
+
+.darkMode {
+  background-color: $darkBackground;
+}

@@ -1,0 +1,20 @@
+@import "../../index.module.scss";
+
+.container {
+  width: 333px;
+  margin: 80px auto 0;
+  padding-top: 30px;
+
+  font-size: 23px;
+  font-weight: 800;
+  color: $blackText;
+
+  @media (min-width: 1440px) {
+    width: 1280px;
+    font-size: 35px;
+  }
+}
+
+.darkMode {
+  color: $whiteText;
+}

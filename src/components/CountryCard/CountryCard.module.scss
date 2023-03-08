@@ -1,0 +1,67 @@
+@import "../../index.module.scss";
+
+.card {
+  display: grid;
+  grid-template-rows: 160px 80px 20px 20px 50px;
+  width: 333px;
+  // height: 336px;
+  border-radius: 5px;
+  background-color: $whiteText;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+
+  @media (min-width: 1440px) {
+    grid-template-rows: 130px 95px 20px 20px 50px;
+    width: 100%;
+  }
+}
+
+.flag {
+  border-radius: 5px 5px 0 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  @media (min-width: 1440px) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 20px 20px 0 20px;
+}
+
+.population {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 0 0 20px;
+}
+
+.region {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 0 0 20px;
+}
+
+.capital {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 0 0 20px;
+}
+
+.data {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.darkMode {
+  color: $whiteText;
+  background-color: $lightDark;
+  border-radius: 5px;
+}

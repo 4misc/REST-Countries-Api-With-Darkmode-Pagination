@@ -1,0 +1,109 @@
+@import "../../index.module.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  width: 100%;
+  margin: auto;
+  background-color: $whiteText;
+  box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
+
+  @media (min-width: 1440px) {
+    width: auto;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 80px;
+  width: 333px;
+  margin: auto;
+  cursor: pointer;
+
+  @media (min-width: 1440px) {
+    width: 1280px;
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: $blackText;
+
+  @media (min-width: 1440px) {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+}
+
+.pagination {
+  display: grid;
+  justify-content: end;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $blackText;
+
+  color: $greyText;
+  padding-right: 20px;
+  transition: color 0.3s;
+
+    &:hover {
+    color: $blackText;
+  }
+
+  // @media (min-width: 1440px) {
+  //   font-size: 1.5rem;
+  //   font-weight: 800;
+  // }
+}
+
+.img {
+  display: grid;
+  align-self: center;
+  width: 17px;
+  height: 17px;
+  justify-self: end;
+  margin-right: 5px;
+
+  @media (min-width: 1440px) {
+    margin-right: 10px;
+  }
+}
+
+.text {
+  display: grid;
+  grid-auto-flow: column;
+  align-self: center;
+  height: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  justify-self: end;
+  color: $greyText;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $blackText;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 1.1rem;
+  }
+}
+
+.darkMode {
+  color: $whiteText;
+  background-color: $lightDark;
+}
+
+.darkModeHover {
+  &:hover {
+    color: $whiteText;
+  }
+}

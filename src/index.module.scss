@@ -1,0 +1,43 @@
+@import-normalize;
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$whiteText: #ffffff;
+$whiteBackground: #fafafa;
+$blackText: #111517;
+$darkBackground: #202c37;
+$lightDark: #2b3945;
+$greyText: #858585;
+
+body,
+main,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p,
+section,
+article,
+button,
+option,
+select,
+input {
+  margin: 0;
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  text-indent: 1px;
+  text-overflow: "";
+
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}

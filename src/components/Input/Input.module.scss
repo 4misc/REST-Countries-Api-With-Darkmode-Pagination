@@ -1,0 +1,216 @@
+@import "../../index.module.scss";
+
+.input {
+  display: grid;
+  grid-template-rows: 56px 56px;
+  gap: 30px;
+  margin: 80px auto 30px;
+  padding-top: 30px;
+
+  @media (min-width: 1440px) {
+    grid-template-rows: none;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.searchContainer {
+  position: relative;
+  color: $greyText;
+
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.searchContainer__search {
+  height: 56px;
+  width: 333px;
+  padding-left: 57px;
+  border-radius: 5px;
+  border: none;
+  color: $greyText;
+  -webkit-appearance: none;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+
+  cursor: pointer;
+  transition: color 2s;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  // background-color: $whiteText;
+  // background-color: red;
+  // height: 200px;
+
+  transition: color, box-shadow 0.3s;
+
+  &:hover {
+    color: $blackText;
+    box-shadow: rgb(0 0 0 / 25%) 0 0 10px;
+  }
+
+  &::placeholder {
+    font-size: 14px;
+    font-weight: 600;
+    color: $greyText;
+    transition: color 0.3s;
+  }
+
+  &:hover::placeholder {
+    color: $blackText;
+  }
+
+  &:focus::placeholder {
+    color: $blackText;
+  }
+
+  @media (min-width: 1440px) {
+    width: 480px;
+  }
+}
+
+.searchContainer__img {
+  position: absolute;
+  top: 18.5px;
+  left: 18.5px;
+
+  height: 20px;
+  width: 20px;
+}
+
+.searchContainer__cross {
+  position: absolute;
+  top: 18.5px;
+  right: 18.5px;
+
+  height: 20px;
+  width: 20px;
+
+  cursor: pointer;
+
+  @media (min-width: 1440px) {
+    top: 18.5px;
+    right: 18.5px;
+  }
+}
+
+.selectContainer {
+  display: grid;
+  position: relative;
+  width: 333px;
+
+  @media (min-width: 1440px) {
+    width: 220px;
+  }
+
+  color: $greyText;
+
+  &:hover {
+    color: $blackText;
+  }
+
+  &:active {
+    color: $blackText;
+  }
+}
+
+.count {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.select {
+  height: 56px;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 25px;
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: $greyText;
+  // background-color: $whiteText;
+
+  box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+  cursor: pointer;
+
+  transition: color, box-shadow 0.3s;
+  appearance: none;
+
+  &:hover {
+    color: $blackText;
+    box-shadow: rgb(0 0 0 / 25%) 0 0 10px;
+  }
+
+  &:focus {
+    color: $blackText;
+  }
+}
+
+.selectValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: $blackText;
+  background-color: $whiteText;
+  height: 56px;
+  padding: 5px;
+  position: fixed;
+  left: 50px;
+  margin: 100px;
+}
+
+.darkMode {
+  background-color: $lightDark;
+  color: $greyText;
+  border-radius: 5px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $whiteText;
+  }
+
+  &:active {
+    color: $whiteText;
+  }
+
+  &:focus {
+    color: $whiteText;
+  }
+
+  &:hover::placeholder {
+    color: $whiteText;
+  }
+
+  &:focus::placeholder {
+    color: $whiteText;
+  }
+}
+
+.darkMode__select {
+  background-color: $lightDark;
+  color: $greyText;
+  transition: color 0.3s;
+  border-radius: 5px;
+
+  &:hover {
+    color: white;
+  }
+
+  &:focus {
+    color: white;
+  }
+
+  &:active {
+    color: white;
+  }
+}
