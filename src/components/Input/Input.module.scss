@@ -45,9 +45,6 @@
   font-size: 18px;
   font-weight: 600;
   outline: none;
-  // background-color: $whiteText;
-  // background-color: red;
-  // height: 200px;
 
   transition: color, box-shadow 0.3s;
 
@@ -111,7 +108,6 @@
     width: 220px;
   }
 
-
   &:hover {
     color: $blackText;
   }
@@ -143,6 +139,9 @@
 
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
 
   transition: color, box-shadow 0.3s;
 
