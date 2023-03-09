@@ -23,17 +23,6 @@ export function Header() {
           Where in the world?
         </Link>
 
-        {/* <Link
-          to="/pagination"
-          className={
-            darkMode
-              ? `${styles.pagination} ${styles.darkModeHover}`
-              : styles.pagination
-          }
-        >
-          Pagination
-        </Link> */}
-
         <div
           className={
             darkMode ? `${styles.text} ${styles.darkModeHover}` : styles.text

@@ -32,10 +32,12 @@
   padding-left: 57px;
   border-radius: 5px;
   border: none;
-  color: $greyText;
+  // color: $greyText;
+
   -webkit-appearance: none;
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
 
   cursor: pointer;
@@ -48,6 +50,10 @@
   // height: 200px;
 
   transition: color, box-shadow 0.3s;
+
+  @media (min-width: 1440px) {
+    width: 485px;
+  }
 
   &:hover {
     color: $blackText;
@@ -67,10 +73,6 @@
 
   &:focus::placeholder {
     color: $blackText;
-  }
-
-  @media (min-width: 1440px) {
-    width: 480px;
   }
 }
 
@@ -103,12 +105,12 @@
   display: grid;
   position: relative;
   width: 333px;
+  color: $greyText;
 
   @media (min-width: 1440px) {
     width: 220px;
   }
 
-  color: $greyText;
 
   &:hover {
     color: $blackText;
@@ -129,23 +131,20 @@
 }
 
 .select {
-  height: 56px;
-  width: 100%;
-  border-radius: 5px;
   padding-left: 25px;
-  border: none;
-  outline: none;
 
   font-size: 14px;
   font-weight: 600;
-  color: $greyText;
-  // background-color: $whiteText;
 
+  border: none;
+  outline: none;
+  border-radius: 5px;
   box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+
   cursor: pointer;
+  appearance: none;
 
   transition: color, box-shadow 0.3s;
-  appearance: none;
 
   &:hover {
     color: $blackText;
