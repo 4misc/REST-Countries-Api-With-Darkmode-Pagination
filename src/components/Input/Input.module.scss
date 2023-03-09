@@ -138,10 +138,10 @@
   box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
 
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  // appearance: none;
+  // -webkit-appearance: none;
+  // -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  // -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
 
   transition: color, box-shadow 0.3s;
 
