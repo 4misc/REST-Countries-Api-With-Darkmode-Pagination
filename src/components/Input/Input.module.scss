@@ -108,6 +108,7 @@
     width: 220px;
   }
 
+
   &:hover {
     color: $blackText;
   }
@@ -135,14 +136,12 @@
   border: none;
   outline: none;
   border-radius: 5px;
-  // box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+  box-shadow: rgb(0 0 0 / 15%) 0 0 10px;
+  
   background-color: $whiteText;
 
   cursor: pointer;
-  // appearance: none;
-  // -webkit-appearance: none;
-  // -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
-  // -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.149);
+  appearance: none;
 
   transition: color, box-shadow 0.3s;
 
