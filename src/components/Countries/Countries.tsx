@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { useCountries } from "../../hooks/useCountries"
+// import { useCountries } from "../../hooks/useCountries"
+import { useCountries } from "src/hooks/useCountries"
 
 import styles from "./Countries.module.scss"
 
-import { CountryType } from "../../interfaces"
+import { CountryType } from "src/interfaces"
 
 import { Input } from "../Input/Input"
 import { CountryCard } from "../CountryCard/CountryCard"
