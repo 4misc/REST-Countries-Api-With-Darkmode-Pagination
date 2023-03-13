@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 0 240px;
+  gap: 20px;
+  height: 1000px;
+}
+
+.photo {
+  grid-column: 2/6;
+  height: 100px;
+  background-color: wheat;
+  margin-top: 150px;
+
+  @media (max-width: 900px) {
+    grid-column: 2/6;
+  }
+
+}

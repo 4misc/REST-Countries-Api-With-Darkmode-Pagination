@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,35 +15,18 @@ import {
 import { NotFound } from "./components/NotFound/NotFound"
 
 import { DarkmodeAndRegionContext } from "./context/DarkmodeAndRegion"
+import { Tail } from "./components/Tail/Tail"
+import { useStorage } from "./hooks/useStorage"
+import { useBackground } from "./hooks/useBackground"
 
 export function App() {
   const { darkMode, darkmodeHandle, region, regionHandle } = useContext(
     DarkmodeAndRegionContext
   )
 
-  useEffect(() => {
-    const storedBoolean = localStorage.getItem("darkMode")
-    const storedRegion = sessionStorage.getItem("region")
+  useStorage(darkMode, darkmodeHandle, region, regionHandle)
 
-    if (storedBoolean !== null) {
-      darkmodeHandle(JSON.parse(storedBoolean))
-    }
-
-    if (storedRegion !== null) {
-      regionHandle(storedRegion)
-    }
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode))
-    sessionStorage.setItem("region", region)
-  }, [darkMode, region])
-
-  if (darkMode) {
-    document.body.style.backgroundColor = "#202c37"
-  } else {
-    document.body.style.backgroundColor = "#fafafa"
-  }
+  useBackground(darkMode)
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -55,6 +38,8 @@ export function App() {
           element={<CountryPage />}
           loader={countryPageLoader}
         />
+
+        <Route path="tail" element={<Tail />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

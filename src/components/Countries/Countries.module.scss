@@ -2,7 +2,7 @@
 
 .countries {
   display: grid;
-  width: 375px;
+  width: 333px;
   margin: 0 auto;
 
   @media (min-width: 1440px) {
@@ -12,18 +12,11 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 333px;
-  justify-items: center;
-  justify-content: center;
   gap: 30px;
-  // padding-top: 30px;
-  background-color: $whiteBackground;
 
   @media (min-width: 1440px) {
-    grid-template-columns: 220px 220px 220px 220px 220px;
-    justify-content: center;
+    grid-template-columns: repeat(5, 220px);
     gap: 45px;
-    margin: 0 auto;
   }
 }
 

@@ -3,25 +3,24 @@ import styles from "./Pagination.module.scss"
 import { useContext } from "react"
 
 import { IoArrowBack, IoArrowForwardOutline } from "react-icons/io5"
-
-import { DarkmodeAndRegionContext } from "../../context/DarkmodeAndRegion"
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
 
 interface PaginationProps {
-  setCurentPage: (prev: any) => void
+  setCurrentPage: (prev: any) => void
   countriesPerPage: number
   countries: any
   query: string
   paginatedCountries: any
-  curentPage: number
+  currentPage: number
 }
 
 export function Pagination({
-  setCurentPage,
+  setCurrentPage: setCurentPage,
   countriesPerPage,
   countries,
   query,
   paginatedCountries,
-  curentPage,
+  currentPage: curentPage,
 }: PaginationProps) {
   const { darkMode } = useContext(DarkmodeAndRegionContext)
 
@@ -43,17 +42,18 @@ export function Pagination({
 
   return (
     <div className={styles.numbersContainer}>
+      {paginatedCountries.length > 0 && (
+        <button
+          className={
+            darkMode ? `${styles.numbers} ${styles.darkMode}` : styles.numbers
+          }
+          onClick={goBack}
+        >
+          <IoArrowBack />
+        </button>
+      )}
+
       <div className={styles.pagination}>
-        {paginatedCountries.length > 0 && (
-          <button
-            className={
-              darkMode ? `${styles.numbers} ${styles.darkMode}` : styles.numbers
-            }
-            onClick={goBack}
-          >
-            <IoArrowBack />
-          </button>
-        )}
         {darkMode
           ? pageNumbers.map((number: number, i: number) => (
               <div
@@ -81,18 +81,26 @@ export function Pagination({
                 {number}
               </div>
             ))}
-
-        {paginatedCountries.length > 0 && (
-          <button
-            className={
-              darkMode ? `${styles.numbers} ${styles.darkMode}` : styles.numbers
-            }
-            onClick={goForward}
-          >
-            <IoArrowForwardOutline />
-          </button>
-        )}
       </div>
+
+      {paginatedCountries.length > 0 && (
+        <div className={`${styles.numbers} ${styles.paginationMobile}`}>
+          {curentPage}
+        </div>
+      )}
+      
+      {paginatedCountries.length > 0 && (
+        <button
+          className={
+            darkMode
+              ? `${styles.numbers} ${styles.darkMode} ${styles.margin0}`
+              : `${styles.numbers} ${styles.margin0}`
+          }
+          onClick={goForward}
+        >
+          <IoArrowForwardOutline />
+        </button>
+      )}
 
       {query && countries.length === 0 && (
         <div

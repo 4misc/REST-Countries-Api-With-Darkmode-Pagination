@@ -13,22 +13,22 @@ import { Pagination } from "../Pagination/Pagination"
 export function Countries() {
   const { darkMode, region } = useContext(DarkmodeAndRegionContext)
   const [query, setQuery] = useState("")
-  const [curentPage, setCurentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1)
   const [countriesPerPage] = useState(20)
 
   const { countries } = useCountries(query, region)
 
-  const lastIndex = curentPage * countriesPerPage
+  const lastIndex = currentPage * countriesPerPage
   const firstIndex = lastIndex - countriesPerPage
   const paginatedCountries = countries.slice(firstIndex, lastIndex)
 
   useEffect(() => {
-    setCurentPage(1)
+    setCurrentPage(1)
   }, [query])
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [curentPage])
+  }, [currentPage])
 
   return (
     <div
@@ -56,10 +56,9 @@ export function Countries() {
         ))}
       </div>
 
-      
       <Pagination
-        curentPage={curentPage}
-        setCurentPage={setCurentPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         countries={countries}
         query={query}
         paginatedCountries={paginatedCountries}
