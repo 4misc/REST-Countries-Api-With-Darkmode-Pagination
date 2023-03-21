@@ -4,27 +4,30 @@ import { useContext } from "react"
 
 import { IoArrowBack, IoArrowForwardOutline } from "react-icons/io5"
 import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
+import { usePagination } from "src/hooks/usePagination"
 
 interface PaginationProps {
-  setCurrentPage: (prev: any) => void
-  countriesPerPage: number
   countries: any
   query: string
-  paginatedCountries: any
-  currentPage: number
 }
 
 export function Pagination({
-  setCurrentPage: setCurentPage,
-  countriesPerPage,
   countries,
   query,
+  currentPage,
+  setCurrentPage,
+  countriesPerPage,
   paginatedCountries,
-  currentPage: curentPage,
-}: PaginationProps) {
+}: any) {
   const { darkMode } = useContext(DarkmodeAndRegionContext)
-
-  const paginate = (pageNumber: number) => setCurentPage(pageNumber)
+  const {
+    // paginate,
+    // goBack,
+    // goForward,
+    // pageNumbers,
+    // currentPage,
+    // paginatedCountries,
+  } = usePagination(countries)
 
   const pageNumbers: number[] = []
 
@@ -32,14 +35,15 @@ export function Pagination({
     pageNumbers.push(i)
   }
 
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
   const goBack = () =>
-    setCurentPage((prev: number) => (prev - 1 < 1 ? prev : prev - 1))
+    setCurrentPage((prev: number) => (prev - 1 < 1 ? prev : prev - 1))
 
   const goForward = () =>
-    setCurentPage((prev: number) =>
+    setCurrentPage((prev: number) =>
       prev + 1 > pageNumbers.length ? prev : prev + 1
     )
-
   return (
     <div className={styles.numbersContainer}>
       {paginatedCountries.length > 0 && (
@@ -58,7 +62,7 @@ export function Pagination({
           ? pageNumbers.map((number: number, i: number) => (
               <div
                 className={
-                  number === curentPage
+                  number === currentPage
                     ? `${styles.numbers} ${styles.darkModeYes}`
                     : `${styles.numbers} ${styles.darkMode}`
                 }
@@ -71,7 +75,7 @@ export function Pagination({
           : pageNumbers.map((number: number, i: number) => (
               <div
                 className={
-                  number === curentPage
+                  number === currentPage
                     ? `${styles.numbers} ${styles.darkModeNo}`
                     : `${styles.numbers} ${styles.darkModeNo2}`
                 }
@@ -85,10 +89,10 @@ export function Pagination({
 
       {paginatedCountries.length > 0 && (
         <div className={`${styles.numbers} ${styles.paginationMobile}`}>
-          {curentPage}
+          {currentPage}
         </div>
       )}
-      
+
       {paginatedCountries.length > 0 && (
         <button
           className={

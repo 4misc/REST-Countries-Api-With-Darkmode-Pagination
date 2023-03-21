@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom"
 import styles from "./CountryCard.module.scss"
+
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
 
 interface CountryCardProps {
   flag: string
@@ -7,7 +10,6 @@ interface CountryCardProps {
   population: number
   region: string
   capital: string
-  darkMode: boolean
 }
 
 export function CountryCard({
@@ -16,11 +18,12 @@ export function CountryCard({
   population,
   region,
   capital,
-  darkMode,
 }: CountryCardProps) {
+  const { darkMode } = useContext(DarkmodeAndRegionContext)
+
   return (
     <Link
-      to={`country/${name}`}
+      to={`/${name}`}
       className={darkMode ? `${styles.card} ${styles.darkMode}` : styles.card}
     >
       <img src={flag} alt="flagImg" className={styles.flag} />

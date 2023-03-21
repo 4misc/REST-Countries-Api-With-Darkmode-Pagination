@@ -2,17 +2,17 @@ import styles from "./CountryPage.module.scss"
 
 import { IoArrowBack } from "react-icons/io5"
 
-import ky from "ky"
-import { Suspense, useContext } from "react"
-import { useNavigate, useLoaderData, Await, defer } from "react-router-dom"
+import { useContext } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
 import { Country } from "./Country"
-import { DarkmodeAndRegionContext } from "../../context/DarkmodeAndRegion"
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
+import { useCountry } from "src/hooks/useCountry"
 
 export function CountryPage() {
   const { darkMode } = useContext(DarkmodeAndRegionContext)
-  const { country }: any = useLoaderData()
-
+  const { countryName }: any = useParams()
+  const { country } = useCountry(countryName)
   const navigate = useNavigate()
 
   return (
@@ -33,37 +33,19 @@ export function CountryPage() {
         </div>
       </div>
 
-      <Suspense
-        fallback={
-          <div
-            className={
-              darkMode
-                ? `${styles.containerNF} ${styles.darkMode}`
-                : styles.containerNF
-            }
-          >
-            Loading...
-          </div>
-        }
-      >
-        <Await resolve={country}>
-          <Country />
-        </Await>
-      </Suspense>
+      {!country ? (
+        <div
+          className={
+            darkMode
+              ? `${styles.containerNF} ${styles.darkMode}`
+              : styles.containerNF
+          }
+        >
+          Loading...
+        </div>
+      ) : (
+        <Country country={country} />
+      )}
     </>
   )
-}
-
-async function getCountry(countryName: string) {
-  const country: any = await ky(
-    `https://restcountries.com/v2/name/${countryName}`
-  ).json()
-
-  return country[0]
-}
-
-export const countryPageLoader = async ({ params }: any) => {
-  const countryName = params.countryName
-
-  return defer({ country: getCountry(countryName) })
 }

@@ -14,10 +14,10 @@ export function useCountries(query: string, region: string) {
 
       setCountries(
         data
-          .sort((a: CountryType, b: CountryType) =>
+          .sort((a: any, b: any) =>
             a.name.common > b.name.common ? 1 : -1
           )
-          .filter((country: CountryType) =>
+          .filter((country: any) =>
             country.name.common.toLowerCase().includes(query.toLowerCase())
           )
           .filter((country: CountryType) => country.region.includes(region))

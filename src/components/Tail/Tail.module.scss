@@ -1,19 +1,87 @@
-.container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  margin: 0 240px;
-  gap: 20px;
-  height: 1000px;
-}
+// .container {
+//   display: grid;
+//   grid-template-columns: repeat(12, 1fr);
+//   margin: 0 240px;
+//   gap: 20px;
+//   height: 1000px;
+// }
 
-.photo {
-  grid-column: 2/6;
-  height: 100px;
-  background-color: wheat;
-  margin-top: 150px;
+// .photo {
+//   grid-column: 2/6;
+//   height: 100px;
+//   background-color: wheat;
+//   margin-top: 150px;
 
-  @media (max-width: 900px) {
-    grid-column: 2/6;
-  }
+//   @media (max-width: 900px) {
+//     grid-column: 2/6;
+//   }
 
-}
+// }
+
+// $toggleWidth: 100px;
+// $toggleHeight: $toggleWidth * .5;
+// $buttonSize: $toggleHeight * .9;
+// $buttonMargin: $toggleWidth * .025;
+// $buttonTransform: $toggleWidth * .5;
+
+// $imgPosition: $toggleWidth * .1;
+// $imgSize: $toggleWidth *.3;
+
+
+// .container {
+//   width: $toggleWidth;
+//   background-color: transparent;
+//   display: grid;
+//   position: relative;
+//   margin-top: 200px;
+//   margin-left: 200px;
+// }
+
+// .button{
+//     background-color: #d2d2d2;
+//     width: $toggleWidth;
+//     height: $toggleHeight;
+//     border-radius: 200px;
+//     cursor: pointer;
+//     position: relative;
+//     transition: 0.2s;
+
+// }
+// .button::before{
+//     position: absolute;
+//     content: '';
+//     display: grid;
+//     background-color: #fff;
+//     width: $buttonSize;
+//     height: $buttonSize;
+//     border-radius: 200px;
+//     margin: $buttonMargin;
+//     transition: 0.2s;
+// }
+
+// input:checked + .button{
+//     background-color: rgb(32, 44, 55);
+// }
+// input:checked + .button::before{
+//     transform: translateX($buttonTransform);
+// }
+
+// input{
+//     display: none;
+// }
+
+// .sun {
+//   position: absolute;
+//   top: $imgPosition;
+//   left: $imgPosition;
+//   width: $imgSize;
+//   height: $imgSize;
+// }
+
+// .moon {
+//   position: absolute;
+//   top: $imgPosition;
+//   right: $imgPosition;
+//   width: $imgSize;
+//   height: $imgSize;
+// }

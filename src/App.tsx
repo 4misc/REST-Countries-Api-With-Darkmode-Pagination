@@ -8,10 +8,7 @@ import {
 import { Layout } from "./Layout"
 
 import { Countries } from "./components/Countries/Countries"
-import {
-  CountryPage,
-  countryPageLoader,
-} from "./components/CountryPage/CountryPage"
+import { CountryPage } from "./components/CountryPage/CountryPage"
 import { NotFound } from "./components/NotFound/NotFound"
 
 import { DarkmodeAndRegionContext } from "./context/DarkmodeAndRegion"
@@ -33,11 +30,7 @@ export function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Countries />} />
 
-        <Route
-          path="country/:countryName"
-          element={<CountryPage />}
-          loader={countryPageLoader}
-        />
+        <Route path="/:countryName" element={<CountryPage />} />
 
         <Route path="tail" element={<Tail />} />
 

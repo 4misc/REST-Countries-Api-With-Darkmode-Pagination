@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { DarkmodeAndRegionContext } from "../../context/DarkmodeAndRegion";
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
 import styles from "./NotFound.module.scss";
 
 export function NotFound() {

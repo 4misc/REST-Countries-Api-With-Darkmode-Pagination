@@ -1,27 +1,29 @@
-import { useContext, useEffect, useState } from "react"
-// import { useCountries } from "../../hooks/useCountries"
-import { useCountries } from "src/hooks/useCountries"
-
 import styles from "./Countries.module.scss"
 
+import { useContext, useEffect, useState } from "react"
+
+import { useCountries } from "src/hooks/useCountries"
+import { usePagination } from "src/hooks/usePagination"
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
 import { CountryType } from "src/interfaces"
 
-import { Input } from "../Input/Input"
-import { CountryCard } from "../CountryCard/CountryCard"
-import { DarkmodeAndRegionContext } from "../../context/DarkmodeAndRegion"
-import { Pagination } from "../Pagination/Pagination"
+import { Input } from "src/components/Input/Input"
+import { CountryCard } from "src/components/CountryCard/CountryCard"
+import { Pagination } from "src/components/Pagination/Pagination"
 
 export function Countries() {
-  const { darkMode, region } = useContext(DarkmodeAndRegionContext)
+  const { region } = useContext(DarkmodeAndRegionContext)
   const [query, setQuery] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
-  const [countriesPerPage] = useState(20)
-
   const { countries } = useCountries(query, region)
+  const [currentPage, setCurrentPage] = useState(1)
+    const [countriesPerPage] = useState(20)
+  // const { currentPage, setCurrentPage, paginatedCountries } =
+  //   usePagination(countries)
 
-  const lastIndex = currentPage * countriesPerPage
-  const firstIndex = lastIndex - countriesPerPage
-  const paginatedCountries = countries.slice(firstIndex, lastIndex)
+      const lastIndex = currentPage * countriesPerPage
+      const firstIndex = lastIndex - countriesPerPage
+
+      const paginatedCountries = countries.slice(firstIndex, lastIndex)
 
   useEffect(() => {
     setCurrentPage(1)
@@ -31,20 +33,16 @@ export function Countries() {
     window.scrollTo(0, 0)
   }, [currentPage])
 
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [region])
+
   return (
-    <div
-      className={
-        darkMode ? `${styles.countries} ${styles.darkMode}` : styles.countries
-      }
-    >
+    <div className={styles.countries}>
       <Input query={query} setQuery={setQuery} countries={countries} />
 
-      <div
-        className={
-          darkMode ? `${styles.cards} ${styles.darkMode}` : styles.cards
-        }
-      >
-        {paginatedCountries.map((country: CountryType, i: number) => (
+      <div className={styles.cards}>
+        {paginatedCountries.map((country: any, i: number) => (
           <CountryCard
             key={i}
             flag={country.flags.svg}
@@ -52,18 +50,17 @@ export function Countries() {
             population={country.population}
             region={country.region}
             capital={country.capital}
-            darkMode={darkMode}
           />
         ))}
       </div>
 
       <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
         countries={countries}
         query={query}
-        paginatedCountries={paginatedCountries}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         countriesPerPage={countriesPerPage}
+        paginatedCountries={paginatedCountries}
       />
     </div>
   )

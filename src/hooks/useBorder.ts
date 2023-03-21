@@ -14,7 +14,7 @@ export function useBorder(borders: string[]) {
         const data: any = await ky(
           "https://restcountries.com/v2/alpha?codes=" + borders.join(",")
         ).json();
-        
+
         setBorder(data.map((i: CodeName) => i.name));
       }
     } catch (error: any) {

@@ -4,9 +4,9 @@ import { useContext } from "react"
 
 import { IoSearchOutline, IoCloseOutline } from "react-icons/io5"
 
-import { CountryType } from "../../interfaces"
+import { CountryType } from "src/interfaces"
 
-import { DarkmodeAndRegionContext } from "../../context/DarkmodeAndRegion"
+import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
 
 interface InputProps {
   query: string
