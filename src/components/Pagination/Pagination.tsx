@@ -4,46 +4,31 @@ import { useContext } from "react"
 
 import { IoArrowBack, IoArrowForwardOutline } from "react-icons/io5"
 import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
-import { usePagination } from "src/hooks/usePagination"
+import { CountryType } from "src/interfaces"
 
 interface PaginationProps {
-  countries: any
+  pageNumbers: number[]
+  paginate: (pageNumber: number) => void
+  goBack: () => void
+  goForward:() => void
+  countries: CountryType[]
+  paginatedCountries: CountryType[]
   query: string
+  currentPage: number
 }
 
 export function Pagination({
+  pageNumbers,
+  paginate,
+  goBack,
+  goForward,
   countries,
+  paginatedCountries,
   query,
   currentPage,
-  setCurrentPage,
-  countriesPerPage,
-  paginatedCountries,
-}: any) {
+}: PaginationProps) {
   const { darkMode } = useContext(DarkmodeAndRegionContext)
-  const {
-    // paginate,
-    // goBack,
-    // goForward,
-    // pageNumbers,
-    // currentPage,
-    // paginatedCountries,
-  } = usePagination(countries)
 
-  const pageNumbers: number[] = []
-
-  for (let i = 1; i <= Math.ceil(countries.length / countriesPerPage); i++) {
-    pageNumbers.push(i)
-  }
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
-
-  const goBack = () =>
-    setCurrentPage((prev: number) => (prev - 1 < 1 ? prev : prev - 1))
-
-  const goForward = () =>
-    setCurrentPage((prev: number) =>
-      prev + 1 > pageNumbers.length ? prev : prev + 1
-    )
   return (
     <div className={styles.numbersContainer}>
       {paginatedCountries.length > 0 && (

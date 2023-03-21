@@ -5,7 +5,6 @@ import { useContext, useEffect, useState } from "react"
 import { useCountries } from "src/hooks/useCountries"
 import { usePagination } from "src/hooks/usePagination"
 import { DarkmodeAndRegionContext } from "src/context/DarkmodeAndRegion"
-import { CountryType } from "src/interfaces"
 
 import { Input } from "src/components/Input/Input"
 import { CountryCard } from "src/components/CountryCard/CountryCard"
@@ -15,15 +14,15 @@ export function Countries() {
   const { region } = useContext(DarkmodeAndRegionContext)
   const [query, setQuery] = useState("")
   const { countries } = useCountries(query, region)
-  const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPerPage] = useState(20)
-  // const { currentPage, setCurrentPage, paginatedCountries } =
-  //   usePagination(countries)
-
-      const lastIndex = currentPage * countriesPerPage
-      const firstIndex = lastIndex - countriesPerPage
-
-      const paginatedCountries = countries.slice(firstIndex, lastIndex)
+  const {
+    currentPage,
+    setCurrentPage,
+    paginatedCountries,
+    pageNumbers,
+    paginate,
+    goBack,
+    goForward,
+  } = usePagination(countries)
 
   useEffect(() => {
     setCurrentPage(1)
@@ -55,12 +54,14 @@ export function Countries() {
       </div>
 
       <Pagination
+        pageNumbers={pageNumbers}
+        paginate={paginate}
+        goBack={goBack}
+        goForward={goForward}
         countries={countries}
+        paginatedCountries={paginatedCountries}
         query={query}
         currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        countriesPerPage={countriesPerPage}
-        paginatedCountries={paginatedCountries}
       />
     </div>
   )
